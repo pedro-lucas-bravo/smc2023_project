@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Audio version="1.0" timeUnit="ms" gain="0dB" controls="true">
+
+  <var name="volume" default="0" value="$rightHand8y" mapin="0,1" />
+  
+  <OscillatorNode output="next"/>
+  <GainNode gain="$volume"/>
+
+</Audio>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>1. Body Gestures - Simple Gain</title>
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/holistic/holistic.js" crossorigin="anonymous"></script>
+    
+  </head>
+
+  <body>
+    <main>
+      <section id="play">
+        <video class="input_video" width="1000" height="567.5"></video>
+        <canvas class="output_canvas" width="1000" height="567.5"></canvas>
+        
+		<waxml-meter fftSize="8192" width="305" height="200" type="oscilloscope"></waxml-meter>
+		<waxml-meter width="305" height="200" type="FFT" maxFrequency="10000" colors="#00f, #44f, #99f" ></waxml-meter>
+		<waxml-meter width="620" height="20" type="loudness" timeframe="2s" maxDecibels="0" minDecibels="-40" colors="green, yellow, red" segments="60,20,20"></waxml-meter>
+		
+
+		<waxml-inspector width="610"></waxml-inspector>
+        
+        
+        <p>Control the volume with your right index finger form top to bottom.</p>
+
+      <p>This DEMO is part of a reasearch project at the 
+        <a href="http://www.kmh.se">Royal College of Music</a> and 
+        <a href="http://www.kth.se/">Royal Institute of Technology</a> 
+        in Stockholm by Hans Lindetorp
+      </p>
+        
+        <p>Please follow my blog at 
+          <a href="https://hans.arapoviclindetorp.se/">hans.arapoviclindetorp.se</a>
+        </p>
+      </section>
+
+      <navigation>
+        <input id="playMusicBtn" type="checkbox" data-waxml-change-set="master=this.checked">Play</a>
+      
+        <h1>1. Body Gestures - Simple Gain</h1>
+      </navigation>
+      
+    </main>
+
+    <script src="script/WebAudioXML.js" data-source="audio.xml"></script>
+    <script src="script/imusic_091.js" data-music-structure="imusic.xml"></script>
+    <script type="text/javascript" src="script/script.js"></script>
+    <script type="text/javascript" src="script/HolisticController.js"></script>
+    <script type="text/javascript" src="script/holistic.js"></script>
+    <script src="sketch.js"></script>
+  </body>
+</html>

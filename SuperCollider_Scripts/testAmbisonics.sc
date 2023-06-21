@@ -2,9 +2,12 @@
 /////////////////////////// Ambisonics
 
 (
+s.options.device =  "ASIO MADIface USB";
 // make sure you have enough outputs
 s.options.numOutputBusChannels = 32;
 s.options.numInputBusChannels = 2;
+s.options.numWireBufs = 256;
+
 
 // Instead of s.boot; we can use waitForBoot.
 // This creates a Routine that allows for checking that certain server tasks have been completed before moving on.
@@ -247,8 +250,8 @@ f = { |msg, time, addr|
 		~xform_z.set(\angle, LinLin.kr(msg, 0.0, 1.0, -pi/2, pi/2), \mul, 1, \add, 0);
     };
 	if(msg[0] == '/oscControl/slider1') {
-        //"time: % sender: %\nmessage: %\n".postf(time, addr, msg);
-		var bpmParam;
+        var bpmParam;
+		"time: % sender: %\nmessage: %\n".postf(time, addr, msg);
 		bpmParam = LinLin.kr(msg, 0.0, 1.0,80, 420);
 		x.set(\bpm, bpmParam);
     };

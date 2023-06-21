@@ -10,7 +10,7 @@ thisProcess.openUDPPort(10001); //mac port
 n = NetAddr.new("192.168.43.129", 10000);    // create the NetAddr
 (
 var n1;
-m = NetAddr.new("192.168.43.129", 10001);    // create the NetAddr
+m = NetAddr.new("127.0.0.1", 10001);    // create the NetAddr
 );
 // create the OSCFunc
 o = OSCFunc({ arg msg, time, addr, recvPort; [msg, time, addr, recvPort].postln; }, '/goodbye', n);
@@ -145,9 +145,9 @@ s.waitForBoot{
 	s.sync;
 
 	// start your preferred decoder synth and make sure it is placed after the transforms group
-	//~decoder = Synth.after(~transforms, \LSfoaDecoder, [\foaInput, ~foaBus]);
+	~decoder = Synth.after(~transforms, \LSfoaDecoder, [\foaInput, ~foaBus]);
 	//~decoder = Synth.after(~transforms, \PHfoaDecoder, [\foaInput, ~foaBus]);
-	~decoder = Synth.after(~transforms, \UHJfoaDecoder, [\foaInput, ~foaBus]);
+	// ~decoder = Synth.after(~transforms, \UHJfoaDecoder, [\foaInput, ~foaBus]);
 };
 )
 
